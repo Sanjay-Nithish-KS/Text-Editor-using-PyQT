@@ -2,55 +2,51 @@ import sys
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
+import MenuBar,TextArea,FindReplaceWindow
+from PyQt5 import QtWidgets
 
 class TextEditor(QMainWindow):
    def __init__(self, parent = None):
       super(TextEditor, self).__init__(parent)
 
-      menu_bar = self.menuBar()
-      
-      self.label = QLabel(self)
-      self.label.setGeometry(0,0,300,300)
+      self.menu_bar = MenuBar.add_menu(self)
 
-      self.add_menu(menu_bar)
+      self.text_area = TextArea.add_text_area(self)
+      self.text_area.textChanged.connect(self.textChanged)
+
       self.setGeometry(0,0,500,500)
       self.setWindowTitle("Text Editor")
       self.setWindowIcon(QIcon('logo.png'))
-   
-   def add_menu(self,menu_bar):
-      """
-      Add Menu to the Text Editor Window
-      """
-      # File Menu
-      file = menu_bar.addMenu("File")
-      file.addAction("New")
-      # Open Menu
-      open = file.addAction("Open")
-      open.setShortcut("Ctrl+O")
-      # Save Menu
-      save = QAction("Save",self)
-      save.setShortcut("Ctrl+S")
-      file.addAction(save)
-      # Edit Menu 
-      edit = file.addMenu("Edit")
-      edit.addAction("copy")
-      edit.addAction("paste")
-      # Quit Menu
-      quit = QAction("Quit",self) 
-      file.addAction(quit)
+      self.setStyleSheet("font:25px;")
+      #self.menu_bar.setStyleSheet("background-color:white;color:black")
+      #background-color:rgba(48,56,65,255)
 
-      file.triggered[QAction].connect(self.processtrigger)
+   def resizeEvent(self, event):
+      menu_bar_height = self.menuBar().height()
+      text_editor_width = self.width()
+      text_editor_height = self.height()
 
-   def processtrigger(self,q):
-      if q.text() == "Open":
-         file_name = QFileDialog.getOpenFileName(self, 'Open file')[0]
-         file_content = open(file_name).read()
-         self.label.setText(file_content)
-         self.label.move(50,20)
+      self.text_area.setGeometry(
+         0, 
+         menu_bar_height,
+         text_editor_width,
+         text_editor_height - menu_bar_height
+      )
 
-      elif q.text() == "Quit":
-         sys.exit()
+   def fileAction(self,action):
+      MenuBar.fileAction(self,action)
 
-      else:
-         print(f"{q.text()}")
+   def editAction(self,action):
+      MenuBar.editAction(self,action)
+
+   def findAction(self,action):
+      MenuBar.findAction(self,action)
+
+   def textChanged(self):
+      editor_window_title = self.windowTitle()
+      
+      if editor_window_title[-1] != "*":
+         self.setWindowTitle(
+               self.windowTitle() + " *"
+            )
       
