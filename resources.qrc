@@ -1,0 +1,14 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+<qresource>
+    <file alias="new_icon">resources/add-file.png</file>
+    <file alias="open_icon">resources/open.png</file>
+    <file alias="save_icon">resources/diskette.png</file>
+    <file alias="copy_icon">resources/copy.png</file>
+    <file alias="paste_icon">resources/paste.png</file>
+    <file alias="cut_icon">resources/cut.png</file>
+    <file alias="undo_icon">resources/undo.png</file>
+    <file alias="redo_icon">resources/share.png</file>
+    <file alias="status">resources/project.png</file>
+</qresource>
+</RCC>

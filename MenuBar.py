@@ -1,3 +1,17 @@
+"""
+	MenuBar Module
+
+	MenuBar Module provides functions to create a menubar and add actions to the
+	menu items.
+
+	Usage:
+		
+		import MenuBar
+		menu_bar = MenuBar.add_menu(TextEditor object)
+
+"""
+
+
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
@@ -15,13 +29,16 @@ def add_menu(editor_window):
 	# New Menu
 	new = file.addAction("&New")
 	new.setShortcut("Ctrl+N")
+	editor_window.new = new
 	# Open Menu
-	open = file.addAction("&Open")
-	open.setShortcut("Ctrl+O")
+	mopen = file.addAction("&Open")
+	mopen.setShortcut("Ctrl+O")
+	editor_window.mopen = mopen
 	# Save Menu
 	save = QAction("&Save",editor_window)
 	save.setShortcut("Ctrl+S")
 	file.addAction(save)
+	editor_window.save = save
 	# Save as Menu
 	save_as = QAction("&Save as",editor_window)
 	save_as.setShortcut("Ctrl+Shift+S")
@@ -35,18 +52,23 @@ def add_menu(editor_window):
 	# Copy
 	copy = edit.addAction("&Copy")
 	copy.setShortcut("Ctrl+C")
+	editor_window.copy = copy
 	# Cut
 	cut = edit.addAction("&Cut")
 	cut.setShortcut("Ctrl+X")
+	editor_window.cut = cut
 	# Paste
 	paste = edit.addAction("&Paste")
 	paste.setShortcut("Ctrl+V")
+	editor_window.paste = paste
 	# Undo
 	undo = edit.addAction("&Undo")
 	undo.setShortcut("Ctrl+Z")
+	editor_window.undo = undo
 	# Redo
 	redo = edit.addAction("&Redo")
 	redo.setShortcut("Ctrl+Y")
+	editor_window.redo = redo
 	# Select All
 	redo = edit.addAction("&Select All")
 	redo.setShortcut("Ctrl+A")
@@ -67,6 +89,9 @@ def add_menu(editor_window):
 	return menu_bar
 
 def fileAction(editor_window,action):
+	"""
+		Adds actions to the menu items of file menu
+	"""
 	if action.text() == "&Open":
 		fileActions.openAction(editor_window)
 
@@ -86,6 +111,9 @@ def fileAction(editor_window,action):
 		print(action.text)
 
 def editAction(editor_window,action):
+	"""
+		Adds actions to the menu items of edit menu
+	"""
 	if action.text() == "&Copy":
 		copyAction(editor_window)
 
@@ -105,6 +133,9 @@ def editAction(editor_window,action):
 		selectAllAction(editor_window)
 
 def findAction(editor_window,action):
+	"""
+		Adds actions to the menu items of find menu
+	"""
 	if action.text() == "&Find":
 		editor_window.find = FindReplaceWindow("find",editor_window)
 		

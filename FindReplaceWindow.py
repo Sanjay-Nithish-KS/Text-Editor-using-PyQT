@@ -1,3 +1,14 @@
+"""
+	FindReplaceWindow Class
+
+	The Class FindReplace is used to create find or find and replace
+	window.
+
+	Usage:
+		import FindReplaceWindow
+		FindReplaceWindow.FindReplaceWindow(action,TextEditor object)
+"""
+
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
@@ -20,6 +31,9 @@ class FindReplaceWindow(QWidget):
 			self.show()
 
 	def createFindLayout(self):
+		"""
+			createFindLayout creates a find window.
+		"""
 		window = self.editor_window
 		#Layouts
 		verticalLayout = QVBoxLayout()
@@ -51,6 +65,9 @@ class FindReplaceWindow(QWidget):
 		self.setGeometry(100,100,400,200)
 
 	def createReplaceLayout(self):
+		"""
+			createReplaceLayout creates a find and replace window.
+		"""
 		window = self.editor_window
 		# Layouts
 		verticalLayout = QVBoxLayout()

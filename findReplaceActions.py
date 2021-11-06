@@ -1,3 +1,10 @@
+"""
+	findReplaceActions Module
+
+	findReplaceActions module provided functions to set actions to find and
+	find and replace menu.
+"""
+
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *

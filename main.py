@@ -1,3 +1,7 @@
+# Text Editor using PyQt5
+# Created By : Sanjay Nithish K S
+
+
 import TextEditor
 import sys
 from PyQt5.QtWidgets import *
