@@ -20,8 +20,15 @@
 			`pip install PyQt5`
        
 ## Screen Shots
-<img src = "https://user-images.githubusercontent.com/66366859/140462377-9c0b7a2e-7445-4c38-8968-fff0a480cf66.png" style="width:500px">
+<img src = "https://user-images.githubusercontent.com/66366859/140609443-80e61271-78db-4a23-a801-5819ade85156.png" style="width:700px">
 <br>
-<img src = "https://user-images.githubusercontent.com/66366859/140462714-d9a76158-e201-459c-8fef-1354fb7f5bcd.png" style = "width:500px">
+<img src = "https://user-images.githubusercontent.com/66366859/140609609-85d74b2a-02a1-4eb9-8d74-6a02819d6332.png" style = "width:700px">
 <br>
-<img src="https://user-images.githubusercontent.com/66366859/140462813-b6bd5837-5112-4e0d-aa1a-38907d0ff15e.png" style="width:500px">
+<img src = "https://user-images.githubusercontent.com/66366859/140609781-9b229b66-63f2-49b2-a0e8-b13a557279c6.png" style = "width:700px">
+<br>
+<img src = "https://user-images.githubusercontent.com/66366859/140609698-b816b5b7-8baf-4557-b0cc-78c694b0f7a0.png" style = "width:700px">
+
+
+
+
+
